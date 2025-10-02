@@ -5,17 +5,19 @@ public class CtoFConverter
     public static void main(String[] args)
     {
         Scanner in = new Scanner(System.in);
-        int valC = 0;
-        int valF = 0;
+        double celcius = 0.0;
+        double fahrenheit = 0.0;
         String trash = "";
         boolean done = false;
 
         do
         {
-            System.out.println("Enetr your C value: ");
-            if (in.hasNextInt())
+            System.out.println("Enter temp in celcius: ");
+            if (in.hasNextDouble())
             {
-                valC = in.nextInt();
+                celcius = in.nextDouble();
+                fahrenheit = (celcius * 9/5) + 32;
+                System.out.printf("The temp in fahrenheit: %.2f\n", fahrenheit);
                 done = true;
             }
             else
@@ -25,7 +27,5 @@ public class CtoFConverter
                 System.out.println("Try again.");
             }
         } while (!done);
-        valF = (int) ((9.0 / 5.0) * valC + 32);
-        System.out.println("F value is: " + valF);
     }
 }
